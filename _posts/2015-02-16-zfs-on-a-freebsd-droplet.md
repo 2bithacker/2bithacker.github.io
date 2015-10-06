@@ -11,25 +11,27 @@ Since the droplets default to UFS, the first hurdle was reinstalling the system 
 
 Here's how I did it. This all assumes a fresh blank FreeBSD droplet, and will delete everything on the droplet in the process.
 
+*Update 6-Oct-2015:* Finally updated this for FreeBSD 10.2!
+
 ### Create mfsBSD tarball
 
 The key to all this is being able to boot into a memory filesystem in order to reformat the droplet's drive, and the easiest way to do that is to use [mfsBSD](http://mfsbsd.vx.sk/).
 
-1. `fetch http://mfsbsd.vx.sk/release/mfsbsd-2.1.tar.gz`
-2. `tar xzf mfsbsd-2.1.tar.gz`
+1. `fetch https://github.com/mmatuska/mfsbsd/archive/2.2.tar.gz`
+2. `tar xzf 2.2.tar.gz`
 3. `mkdir dist`
 4. `cd dist`
-5. `fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/10.1-RELEASE/base.txz`
-5. `fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/10.1-RELEASE/kernel.txz`
-6. `cd ../mfsbsd-2.1`
-7. `make tar BASE='../dist'` (note, this needs root)
+5. `fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/10.2-RELEASE/base.txz`
+5. `fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/10.2-RELEASE/kernel.txz`
+6. `cd ../mfsbsd-2.2`
+7. `make tar BASE='../dist' PKG_STATIC='/usr/local/bin/pkg-static'` (note, this needs root)
 
-This should leave you with a `mfsbsd-10.1-RELEASE-amd64.tar`
+This should leave you with a `mfsbsd-10.2-RELEASE-amd64.tar`
 
 ### Extract tarball over / and reboot
 
 1. `cd /`
-2. `tar xf /path/to/mfsbsd-10.1-RELEASE-amd64.tar` 
+2. `tar xf /path/to/mfsbsd-10.2-RELEASE-amd64.tar` 
 3. (optional) edit `/boot/loader.conf` to set initial IP addrs and such
 3. `reboot`
 
