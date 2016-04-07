@@ -7,14 +7,20 @@ layout: default
   <p>{{ site.description }}</p>
 </div>
 
+<div class="row">
+<div class="col-md-9">
 {% for post in site.posts %}
 <div class="panel panel-default">
-  <div class="panel-heading"><h2 class="panel-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2></div>
+  <div class="panel-heading">
+      <div class="pull-right"><a class="btn btn-primary btn-xs" href="{{ post.url | prepend: site.baseurl }}">Link</a></div>
+      <h2 class="panel-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+  </div>
   <div class="panel-body">
     {{ post.content }}
   </div>
   <div class="panel-footer">
     <div class="pull-right">
+    <span class="label label-primary">{{ post.category }}</span>
     {% for tag in post.tags %}
       <span class="label label-default">{{ tag }}</span>
     {% endfor %}
@@ -23,3 +29,8 @@ layout: default
   </div>
 </div>
 {% endfor %}
+</div>
+<div class="col-md-3">
+{% include sidebar.html %}
+</div>
+</div>
