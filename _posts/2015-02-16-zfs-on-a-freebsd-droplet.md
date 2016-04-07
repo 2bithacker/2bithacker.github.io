@@ -13,6 +13,8 @@ Here's how I did it. This all assumes a fresh blank FreeBSD droplet, and will de
 
 *Update 6-Oct-2015:* Finally updated this for FreeBSD 10.2!
 
+*Update 7-Apr-2016:* Updated for FreeBSD 10.3-RELEASE.
+
 ### Create mfsBSD tarball
 
 The key to all this is being able to boot into a memory filesystem in order to reformat the droplet's drive, and the easiest way to do that is to use [mfsBSD](http://mfsbsd.vx.sk/).
@@ -21,17 +23,17 @@ The key to all this is being able to boot into a memory filesystem in order to r
 2. `tar xzf 2.2.tar.gz`
 3. `mkdir dist`
 4. `cd dist`
-5. `fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/10.2-RELEASE/base.txz`
-5. `fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/10.2-RELEASE/kernel.txz`
+5. `fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/10.3-RELEASE/base.txz`
+5. `fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/10.3-RELEASE/kernel.txz`
 6. `cd ../mfsbsd-2.2`
 7. `make tar BASE='../dist' PKG_STATIC='/usr/local/sbin/pkg-static'` (note, this needs root)
 
-This should leave you with a `mfsbsd-10.2-RELEASE-amd64.tar`
+This should leave you with a `mfsbsd-10.3-RELEASE-amd64.tar`
 
 ### Extract tarball over / and reboot
 
 1. `cd /`
-2. `tar xf /path/to/mfsbsd-10.2-RELEASE-amd64.tar`
+2. `tar xf /path/to/mfsbsd-10.3-RELEASE-amd64.tar`
 3. (optional) edit `/boot/loader.conf` to set initial IP addrs and such
 3. `reboot`
 
