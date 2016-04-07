@@ -24,14 +24,14 @@ The key to all this is being able to boot into a memory filesystem in order to r
 5. `fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/10.2-RELEASE/base.txz`
 5. `fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/10.2-RELEASE/kernel.txz`
 6. `cd ../mfsbsd-2.2`
-7. `make tar BASE='../dist' PKG_STATIC='/usr/local/bin/pkg-static'` (note, this needs root)
+7. `make tar BASE='../dist' PKG_STATIC='/usr/local/sbin/pkg-static'` (note, this needs root)
 
 This should leave you with a `mfsbsd-10.2-RELEASE-amd64.tar`
 
 ### Extract tarball over / and reboot
 
 1. `cd /`
-2. `tar xf /path/to/mfsbsd-10.2-RELEASE-amd64.tar` 
+2. `tar xf /path/to/mfsbsd-10.2-RELEASE-amd64.tar`
 3. (optional) edit `/boot/loader.conf` to set initial IP addrs and such
 3. `reboot`
 
@@ -48,7 +48,3 @@ Log in to the droplet's console as root, and set up networking (if you didn't ch
 At this point you should be able to just run `bsdinstall` and do a regular FreeBSD installation onto vtblk0, selecting ZFS when it comes to paritioning the disk.
 
 When the install is done, just reboot again and you'll have a nice clean ZFS droplet!
-
-
-
-
