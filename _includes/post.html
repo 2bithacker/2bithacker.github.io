@@ -1,0 +1,22 @@
+{% assign p = include.post %}
+{% assign h = include.header | default: 1 %}
+<div class="panel panel-default">
+    {% if h == 1 %}
+    <div class="panel-heading">
+        <div class="pull-right"><a class="btn btn-primary btn-xs" href="{{ p.url | prepend: site.baseurl }}">Link</a></div>
+        <h2 class="panel-title"><a href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a></h2>
+    </div>
+    {% endif %}
+    <div class="panel-body">
+        {{ p.content }}
+    </div>
+    <div class="panel-footer">
+        <div class="pull-right">
+            <a href="/categories.html#{{ p.category }}"><span class="label label-primary">{{ p.category }}</span></a>
+            {% for tag in p.tags %}
+                <a href="/tags.html#{{ tag }}"><span class="label label-default">{{ tag }}</span></a>
+            {% endfor %}
+        </div>
+        {{ p.date | date: "%-d-%b-%Y" }}
+    </div>
+</div>
