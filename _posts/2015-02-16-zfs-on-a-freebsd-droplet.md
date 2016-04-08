@@ -45,7 +45,7 @@ Log in to the droplet's console as root, and set up networking (if you didn't ch
 
 1. `ifconfig vtnet0 inet [addr] netmask [mask]`
 2. `route add default [gateway]`
-3. `echo 'nameserver 8.8.8.8 >> /etc/resolv.conf`
+3. `echo 'nameserver 8.8.8.8' >> /etc/resolv.conf`
 
 At this point you should be able to just run `bsdinstall` and do a regular FreeBSD installation onto vtblk0, selecting ZFS when it comes to paritioning the disk.
 
