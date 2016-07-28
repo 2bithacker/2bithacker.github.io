@@ -33,9 +33,10 @@ This should leave you with a `mfsbsd-10.3-RELEASE-amd64.tar`
 ### Extract tarball over / and reboot
 
 1. `cd /`
-2. `tar xf /path/to/mfsbsd-10.3-RELEASE-amd64.tar`
-3. (optional) edit `/boot/loader.conf` to set initial IP addrs and such
-3. `reboot`
+2. `rm -rf boot` to prevent old kernels or modules from getting loaded
+3. `tar xf /path/to/mfsbsd-10.3-RELEASE-amd64.tar`
+4. (optional) edit `/boot/loader.conf` to set initial IP addrs and such
+5. `reboot`
 
 After this point, you'll want to be on the droplet's console. It should reboot into the mfsBSD environment. If you didn't edit `loader.conf` then you'll need to manually configure vtnet0 for Internet access.
 
