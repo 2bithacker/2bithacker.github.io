@@ -2,30 +2,35 @@
     <img src="https://s.gravatar.com/avatar/fc17e4195217449fadb6272626cb974e?s=200" />
 </p>
 <div class="panel panel-primary">
-    <div class="panel-heading"><h2 class="panel-title">Links</h2></div>
+    <div class="panel-heading">
+        <h2 class="panel-title">Links</h2>
+    </div>
     <div class="panel-body">
         <ul>
             <li><a href="https://github.com/2bithacker">Github</a></li>
-            <li><a href="https://keybase.io/2bithacker">Keybase</a></li>
-            <li><a href="https://twitter.com/2bithacker">Twitter</a></li>
+            <li><a href="https://social.2bit.co/@chip">Mastodon</a></li>
         </ul>
     </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h2 class="panel-title">Categories</h2></div>
+    <div class="panel-heading">
+        <h2 class="panel-title">Categories</h2>
+    </div>
     <div class="panel-body">
         {% for cat in site.categories %}
-            {% assign t = cat | first %}
-            <a href="categories.html#{{ t }}"><span class="label label-primary">{{ t }}</span></a>
+        {% assign t = cat | first %}
+        <a href="categories.html#{{ t }}"><span class="label label-primary">{{ t }}</span></a>
         {% endfor %}
     </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h2 class="panel-title">Tags</h2></div>
+    <div class="panel-heading">
+        <h2 class="panel-title">Tags</h2>
+    </div>
     <div class="panel-body">
         {% for tag in site.tags %}
-            {% assign t = tag | first %}
-            <a href="tags.html#{{ t }}"><span class="label label-default">{{ t }}</span></a>
+        {% assign t = tag | first %}
+        <a href="tags.html#{{ t }}"><span class="label label-default">{{ t }}</span></a>
         {% endfor %}
     </div>
 </div>
